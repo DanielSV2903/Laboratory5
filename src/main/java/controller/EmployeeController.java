@@ -36,7 +36,7 @@ public class EmployeeController
     public void initialize() {
         //cargamos la lista general
         this.employeeList = Utility.getEmployeeList();
-        alert = FXUtility.alert("Student List", "Display Student");
+        alert = FXUtility.alert("Employee List", "Display Employee");
         alert.setAlertType(Alert.AlertType.ERROR);
         idTableColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
         nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
@@ -48,16 +48,16 @@ public class EmployeeController
                     employeeTableView.getItems().add((Employee) employeeList.getNode(i).data);
                 }
             }
-            //this.studentTableView.setItems(observableList);
+            //this.EmployeeTableView.setItems(observableList);
         }catch(ListException ex){
-            alert.setContentText("Student list is empty");
+            alert.setContentText("Employee list is empty");
             alert.showAndWait();
         }
     }
 
     @FXML
     public void clearOnAction(ActionEvent actionEvent) {
-        this.employeeTableView.clear();
+        employeeTableView.getItems().clear();
         Utility.setEmployeeList(this.employeeList); //actualizo la lista general
         this.alert.setContentText("The list was deleted");
         this.alert.setAlertType(Alert.AlertType.INFORMATION);
@@ -79,12 +79,12 @@ public class EmployeeController
 
     @javafx.fxml.FXML
     public void addOnAction(ActionEvent actionEvent) {
-        util.FXUtility.loadPage("ucr.lab.HelloApplication", "addStudent.fxml", bp);
+        util.FXUtility.loadPage("ucr.lab.HelloApplication", "addEmployee.fxml", bp);
     }
 
     @javafx.fxml.FXML
     public void addFirstOnAction(ActionEvent actionEvent) {
-        util.FXUtility.loadPage("ucr.lab.HelloApplication", "addFirstStudent.fxml", bp);
+        util.FXUtility.loadPage("ucr.lab.HelloApplication", "addFirstEmployee.fxml", bp);
     }
 
     @javafx.fxml.FXML
