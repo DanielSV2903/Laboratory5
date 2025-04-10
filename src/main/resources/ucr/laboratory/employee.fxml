@@ -16,7 +16,7 @@
          <children>
             <Pane layoutX="16.0" prefHeight="86.0" prefWidth="761.0" style="-fx-background-color: #fe6962;">
                <children>
-                  <Label layoutX="90.0" layoutY="20.0" text="Students List (Singly Linked List)">
+                  <Label layoutX="66.0" layoutY="20.0" text="Employee List (Circular Linked List)">
                      <font>
                         <Font name="Arial" size="40.0" />
                      </font>
@@ -25,35 +25,35 @@
             </Pane>
             <Pane layoutX="3.0" layoutY="86.0" prefHeight="367.0" prefWidth="798.0">
                <children>
-                  <TableView fx:id="employeeTView" layoutX="15.0" layoutY="14.0" prefHeight="350.0" prefWidth="761.0">
+                  <TableView fx:id="employeeTView" layoutX="15.0" layoutY="14.0" prefHeight="350.0" prefWidth="770.0">
                     <columns>
                       <TableColumn fx:id="idTableColumn" prefWidth="101.0" text="Id" />
-                        <TableColumn fx:id="addressTableColumn1" prefWidth="177.0" text="Apellido" />
+                        <TableColumn fx:id="lastnameTableColumn" prefWidth="177.0" text="Apellido" />
                       <TableColumn fx:id="nameTableColumn" prefWidth="153.0" text="Nombre" />
-                        <TableColumn fx:id="addressTableColumn" prefWidth="155.0" text="Title" />
-                        <TableColumn fx:id="addressTableColumn2" prefWidth="154.0" text="Birthday" />
+                        <TableColumn fx:id="titleTableColumn" prefWidth="155.0" text="Title" />
+                        <TableColumn fx:id="birthdayTableColumn" prefWidth="180.0" text="Birthday" />
                     </columns>
                   </TableView>
                </children>
             </Pane>
             <Pane layoutX="19.0" layoutY="462.0" prefHeight="153.0" prefWidth="761.0">
                <children>
-                  <ButtonBar layoutX="1.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="761.0">
+                  <ButtonBar layoutX="14.0" layoutY="14.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="761.0">
                     <buttons>
                         <Button layoutX="202.0" layoutY="17.0" mnemonicParsing="false" onAction="#sizeOnAction" text="Size" />
                         <Button layoutX="685.0" layoutY="17.0" mnemonicParsing="false" onAction="#containsOnAction" text="Contains" />
-                        <Button layoutX="135.0" layoutY="17.0" mnemonicParsing="false" onAction="#addSortedOnAction" text="Add Sorted" />
-                        <Button layoutX="135.0" layoutY="17.0" mnemonicParsing="false" onAction="#addFirstOnAction" text="Add First" />
+                        <Button layoutX="135.0" layoutY="17.0" mnemonicParsing="false" onAction="#sortByNameOnAction" text="SortByName" />
+                        <Button layoutX="135.0" layoutY="17.0" mnemonicParsing="false" onAction="#sortByIdOnAction" text="Sort By Id" />
                       <Button mnemonicParsing="false" onAction="#addOnAction" text="Add" />
                     </buttons>
                   </ButtonBar>
-                  <ButtonBar layoutY="57.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="761.0">
+                  <ButtonBar layoutX="13.0" layoutY="57.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="761.0" scaleShape="false">
                     <buttons>
                         <Button layoutX="202.0" layoutY="17.0" mnemonicParsing="false" onAction="#clearOnAction" text="Clear" />
-                        <Button layoutX="125.0" layoutY="17.0" mnemonicParsing="false" onAction="#removeFirstOnAction" text="Remove First" />
+                        <Button layoutX="125.0" layoutY="17.0" mnemonicParsing="false" onAction="#removeLastOnAction" text="Remove Last" />
                         <Button layoutX="525.0" layoutY="17.0" mnemonicParsing="false" onAction="#removeOnAction" text="Remove" />
-                        <Button layoutX="104.0" layoutY="17.0" mnemonicParsing="false" onAction="#getLastOnAction" text="Get Last" />
-                      <Button mnemonicParsing="false" onAction="#getFirstOnAction" text="Get First" />
+                        <Button layoutX="104.0" layoutY="17.0" mnemonicParsing="false" onAction="#getNextOnAction" text="Get Next" />
+                      <Button mnemonicParsing="false" onAction="#getPrevOnAction" text="Get Prev" />
                     </buttons>
                   </ButtonBar>
                </children>

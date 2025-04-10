@@ -18,37 +18,42 @@ public class EmployeeController
     @javafx.fxml.FXML
     private BorderPane bp;
     @javafx.fxml.FXML
-    private TableView<Employee> employeeTableView; //establezco el tipo para el tableview
-    @javafx.fxml.FXML
     private TableColumn<Employee, String> idTableColumn;
     @javafx.fxml.FXML
     private TableColumn<Employee, String> nameTableColumn;
-    @javafx.fxml.FXML
-    private TableColumn<Employee, Integer> ageTableColumn;
-    @javafx.fxml.FXML
-    private TableColumn<Employee, String> addressTableColumn;
 
     //defino la lista enlazada interna
     private CircularLinkedList employeeList;
     private Alert alert; //para el manejo de alertas
+    @FXML
+    private TableView employeeTView;
+    @FXML
+    private TableColumn titleTableColumn;
+    @FXML
+    private TableColumn lastnameTableColumn;
+    @FXML
+    private TableColumn birthdayTableColumn;
 
     @FXML
     public void initialize() {
+
         //cargamos la lista general
         this.employeeList = Utility.getEmployeeList();
         alert = FXUtility.alert("Employee List", "Display Employee");
         alert.setAlertType(Alert.AlertType.ERROR);
         idTableColumn.setCellValueFactory(new PropertyValueFactory<>("Id"));
+        lastnameTableColumn.setCellValueFactory(new PropertyValueFactory<>("Lastname"));
         nameTableColumn.setCellValueFactory(new PropertyValueFactory<>("Name"));
-        ageTableColumn.setCellValueFactory(new PropertyValueFactory<>("Age"));
-        addressTableColumn.setCellValueFactory(new PropertyValueFactory<>("Address"));
+        titleTableColumn.setCellValueFactory(new PropertyValueFactory<>("Title"));
+        birthdayTableColumn.setCellValueFactory(new PropertyValueFactory<>("Birthday"));
+        
         try{
             if(employeeList!=null && !employeeList.isEmpty()){
                 for(int i=1; i<=employeeList.size(); i++) {
-                    employeeTableView.getItems().add((Employee) employeeList.getNode(i).data);
+                    employeeTView.getItems().add((Employee) employeeList.getNode(i).data);
                 }
             }
-            //this.EmployeeTableView.setItems(observableList);
+            //this.employeeTView.setItems(observableList);
         }catch(ListException ex){
             alert.setContentText("Employee list is empty");
             alert.showAndWait();
@@ -57,7 +62,7 @@ public class EmployeeController
 
     @FXML
     public void clearOnAction(ActionEvent actionEvent) {
-        employeeTableView.getItems().clear();
+        employeeTView.getItems().clear();
         Utility.setEmployeeList(this.employeeList); //actualizo la lista general
         this.alert.setContentText("The list was deleted");
         this.alert.setAlertType(Alert.AlertType.INFORMATION);
@@ -82,7 +87,7 @@ public class EmployeeController
         util.FXUtility.loadPage("ucr.lab.HelloApplication", "addEmployee.fxml", bp);
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void addFirstOnAction(ActionEvent actionEvent) {
         util.FXUtility.loadPage("ucr.lab.HelloApplication", "addFirstEmployee.fxml", bp);
     }
@@ -91,30 +96,49 @@ public class EmployeeController
     public void removeOnAction(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void addSortedOnAction(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void getFirstOnAction(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void removeFirstOnAction(ActionEvent actionEvent) {
     }
 
-    @javafx.fxml.FXML
+    @Deprecated
     public void getLastOnAction(ActionEvent actionEvent) {
     }
 
     private void updateTableView() throws ListException {
-        this.employeeTableView.getItems().clear(); //clear table
+        this.employeeTView.getItems().clear(); //clear table
         this.employeeList = Utility.getEmployeeList(); //cargo la lista
         if(employeeList!=null && !employeeList.isEmpty()){
             for(int i=1; i<=employeeList.size(); i++) {
-                this.employeeTableView.getItems().add((Employee) employeeList.getNode(i).data);
+                this.employeeTView.getItems().add((Employee) employeeList.getNode(i).data);
             }
         }
     }
 
+    @FXML
+    public void removeLastOnAction(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void getPrevOnAction(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void sortByIdOnAction(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void sortByNameOnAction(ActionEvent actionEvent) {
+    }
+
+    @FXML
+    public void getNextOnAction(ActionEvent actionEvent) {
+    }
 }
