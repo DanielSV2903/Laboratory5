@@ -38,7 +38,11 @@ public class AddEmployeeController
 
     @javafx.fxml.FXML
     public void addOnAction(ActionEvent actionEvent) {
+        if (idTextField.getText().isEmpty() || titleTextField.getText().isEmpty() || birthdayDatePicker.getValue() == null) {
+            mostrarAlerta("No pueden quedar casillas en blanco. Asegúrese de llenar todos los espacios");
+        } else {
 
+        }
     }
 
     @javafx.fxml.FXML

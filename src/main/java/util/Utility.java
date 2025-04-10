@@ -17,10 +17,6 @@ import java.util.Random;
 public class Utility {
     private static  Random random;
     private static CircularLinkedList employeeList;
-
-
-
-
     //constructor estatico, inicializador estatico
     static {
         // semilla para el random
@@ -102,7 +98,7 @@ public class Utility {
         return "Unknown";
     }
 
-    public static boolean validarEntradasStudent(TextField nombreField, TextField edadField, TextField idField) {
+    public static boolean validarEntradasEmployee(TextField nombreField, TextField edadField, TextField idField) {
 
         //Validar nombre: solo letras y espacios
         String nombre = nombreField.getText().trim();
